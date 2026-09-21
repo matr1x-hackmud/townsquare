@@ -21,7 +21,7 @@
       <em v-else>(majority is {{ Math.ceil(players.length / 2) }})</em>
 
       <audio
-        id="voteSound" 
+        id="voteSound"
         src="../assets/sounds/tick.mp3"
         :muted="grimoire.isMuted"
       ></audio>
@@ -208,8 +208,8 @@ export default {
         this.$store.commit("session/lockVote");
 
         let voteSound = document.getElementById("voteSound");
-        
-        if(!this.grimoire.isMuted){
+
+        if (!this.grimoire.isMuted) {
           voteSound.currentTime = 0;
           voteSound.play();
         }
