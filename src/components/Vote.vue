@@ -6,6 +6,7 @@
     </div>
     <div class="overlay">
       <audio src="../assets/sounds/countdown.mp3" preload="auto"></audio>
+      <audio src="../assets/sounds/tick.mp3" preload="auto"></audio>
       <em class="blue">{{ nominator.name }}</em> nominated
       <em>{{ nominee.name }}</em
       >!
@@ -18,6 +19,12 @@
         (majority is {{ Math.ceil(alive / 2) }})
       </em>
       <em v-else>(majority is {{ Math.ceil(players.length / 2) }})</em>
+
+      <audio
+        id="voteSound" 
+        src="../assets/sounds/tick.mp3"
+        :muted="grimoire.isMuted"
+      ></audio>
 
       <template v-if="!session.isSpectator">
         <div v-if="!session.isVoteInProgress && session.lockedVote < 1">
@@ -199,6 +206,14 @@ export default {
       clearInterval(this.voteTimer);
       this.voteTimer = setInterval(() => {
         this.$store.commit("session/lockVote");
+
+        let voteSound = document.getElementById("voteSound");
+        
+        if(!this.grimoire.isMuted){
+          voteSound.currentTime = 0;
+          voteSound.play();
+        }
+
         if (this.session.lockedVote > this.players.length) {
           clearInterval(this.voteTimer);
           this.$store.commit("session/setVoteInProgress", false);
