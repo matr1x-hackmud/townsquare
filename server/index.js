@@ -31,8 +31,8 @@ const wss = new WebSocket.Server({
   verifyClient: (info) =>
     info.origin &&
     !!info.origin.match(
-      /^https?:\/\/([^.]+\.github\.io|localhost|clocktower\.live)/i,
-    ),
+      /^https?:\/\/([^.]+\.github\.io|localhost|botc-ws.marto.ooo|botc.marto.ooo)/i
+    )
 });
 
 function noop() {}
