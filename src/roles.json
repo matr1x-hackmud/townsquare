@@ -1747,6 +1747,84 @@
     "reminders": [],
     "setup": false,
     "ability": "Once per day, if you publicly guess which players are Minion(s) and which are Demon(s), good wins."
+  },
+  {
+    "id": "banshee",
+    "name": "Banshee",
+    "edition": "",
+    "team": "townsfolk",
+    "firstNight": 0,
+    "firstNightReminder": "",
+    "otherNight": 0,
+    "otherNightReminder": "",
+    "reminders": ["Has ability"],
+    "setup": false,
+    "ability": "If the Demon kills you, all players learn this. From now on, you may nominate twice per day and vote twice per nomination."
+  },
+  {
+    "id": "wizard",
+    "name": "Wizard",
+    "edition": "",
+    "team": "minion",
+    "firstNight": 5,
+    "firstNightReminder": "Ask the Wizard if they would like to make a wish.",
+    "otherNight": 5,
+    "otherNightReminder": "Ask the Wizard if they would like to make a wish.",
+    "reminders": ["Wish granted"],
+    "setup": false,
+    "ability": "Once per game, choose to make a wish. If granted, it might have a price & leave a clue as to its nature."
+  },
+  {
+    "id": "yaggababble",
+    "name": "Yaggababble",
+    "edition": "",
+    "team": "demon",
+    "firstNight": 0,
+    "firstNightReminder": "",
+    "otherNight": 34,
+    "otherNightReminder": "You may mark players with DEAD reminders for each time the Yaggababble phrase was said. These players die. ",
+    "reminders": ["Dead"],
+    "setup": false,
+    "ability": "You start knowing a secret phrase. For each time you said it publicly today, a player might die."
+  },
+  {
+    "id": "kazali",
+    "name": "Kazali",
+    "edition": "",
+    "team": "demon",
+    "firstNight": 0,
+    "firstNightReminder": "",
+    "otherNight": 33,
+    "otherNightReminder": "The Kazali points to a player. That player dies.",
+    "reminders": ["Dead"],
+    "setup": true,
+    "ability": "Each night*, choose a player: they die. [You choose which players are which Minions. -? to +? Outsiders]"
+  },
+  {
+    "id": "knight",
+    "name": "Knight",
+    "edition": "",
+    "team": "townsfolk",
+    "firstNight": 39,
+    "firstNightReminder": "During the first night, wake the Knight. Point to the two players marked KNOW.",
+    "otherNight": 0,
+    "otherNightReminder": "",
+    "reminders": ["Know"],
+    "setup": false,
+    "ability": "You start knowing 2 players that are not the Demon."
+  },
+  {
+    "id": "hatter",
+    "name": "Hatter",
+    "edition": "",
+    "team": "outsider",
+    "firstNight": 0,
+    "firstNightReminder": "",
+    "otherNight": 70,
+    "otherNightReminder": "If the Hatter died today or tonight, wake the minions and demon. They select new characters to become.",
+    "reminders": [],
+    "setup": false,
+    "ability": "If you died today or tonight, the Minion & Demon players may choose new Minion & Demon characters to be."
   }
 ]
 
