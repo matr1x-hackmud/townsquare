@@ -98,9 +98,7 @@ try {
   // fetch("https://bloodontheclocktower.com/script/data/hatred.json")
   //   .then(res => res.json())
   //   .then(jinxesJSON => {
-  firstNightOrder = new Array(
-    nightorderJSON["firstNight"]
-  );
+  firstNightOrder = nightorderJSON["firstNight"];
   // });
 } catch (e) {
   console.error("couldn't load first-night night order", e);
