@@ -1,5 +1,13 @@
 # Release Notes
 
+### Version 2.17.0
+- Updated/added roles to be in-line with the current Script Tool revision (2026.10.09)
+- Added role icons for any roles not yet ported in (adjustment to be in-line with the Townsquare style pending)
+- Moved night order to its own JSON file (also from the Script Tool), which is now used to determine night order
+- Added a sick clock ticking noise to the voting process
+
+---
+
 ### Version 2.16.2
 - fixed custom script format to support new script tool JSON
 - updated packages to be compatible with Node >= 18 again
