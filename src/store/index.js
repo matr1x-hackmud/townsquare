@@ -91,6 +91,21 @@ try {
   console.error("couldn't load jinxes", e);
 }
 
+// first night order
+let firstNightOrder = [];
+try {
+  // Note: can't fetch live list due to lack of CORS headers
+  // fetch("https://bloodontheclocktower.com/script/data/hatred.json")
+  //   .then(res => res.json())
+  //   .then(jinxesJSON => {
+  firstNightOrder = new Array(
+    nightorderJSON["firstNight"]
+  );
+  // });
+} catch (e) {
+  console.error("couldn't load first-night night order", e);
+}
+
 // base definition for custom roles
 const customRole = {
   id: "",
@@ -140,6 +155,7 @@ export default new Vuex.Store({
     edition: editionJSONbyId.get("tb"),
     roles: getRolesByEdition(),
     otherTravelers: getTravelersNotInEdition(),
+    firstNightOrder,
     fabled,
     jinxes,
   },

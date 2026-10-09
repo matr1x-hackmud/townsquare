@@ -114,12 +114,14 @@ export default {
     rolesFirstNight: function () {
       const rolesFirstNight = [];
       // add minion / demon infos to night order sheet
-      if (this.players.length > 6) {
+      let firstNightOrder = this.$store.state.firstNightOrder;
+
+      if (this.players.length > 6 || this.fabled.some(fabled => fabled.id == "toymaker") ) {
         rolesFirstNight.push(
           {
             id: "evil",
             name: "Minion info",
-            firstNight: 5,
+            firstNight: (firstNightOrder.indexOf("minioninfo") || 5),
             team: "minion",
             players: this.players.filter((p) => p.role.team === "minion"),
             firstNightReminder:
@@ -129,7 +131,7 @@ export default {
           {
             id: "evil",
             name: "Demon info & bluffs",
-            firstNight: 8,
+            firstNight: (firstNightOrder.indexOf("demoninfo") || 8),
             team: "demon",
             players: this.players.filter((p) => p.role.team === "demon"),
             firstNightReminder:
