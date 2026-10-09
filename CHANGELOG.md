@@ -5,6 +5,7 @@
 - Added role icons for any roles not yet ported in (adjustment to be in-line with the Townsquare style pending)
 - Moved night order to its own JSON file (also from the Script Tool), which is now used to determine night order
 - Added a sick clock ticking noise to the voting process
+- Night order modal now respects when the Toymaker is in-play
 
 ---
 
