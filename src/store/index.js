@@ -5,11 +5,25 @@ import socket from "./socket";
 import players from "./modules/players";
 import session from "./modules/session";
 import editionJSON from "../editions.json";
-import rolesJSON from "../roles.json";
+import rolesJSON_ro from "../roles.json";
+import nightorderJSON from "../nightorder.json";
 import fabledJSON from "../fabled.json";
 import jinxesJSON from "../hatred.json";
 
 Vue.use(Vuex);
+
+let rolesJSON = JSON.parse(JSON.stringify(rolesJSON_ro));
+
+// set night order on roles JSON
+for(let _r = 0; _r < rolesJSON.length; _r++){
+  let role = rolesJSON[_r];
+
+  ["firstNight","otherNight"].forEach(night_type => {
+    let nightIndex = nightorderJSON[night_type].indexOf(role.id);
+    if(nightIndex > -1) rolesJSON[_r][night_type] = Math.abs(nightIndex);
+  })
+}
+
 
 // helper functions
 const getRolesByEdition = (edition = editionJSON[0]) => {
@@ -218,7 +232,7 @@ export default new Vuex.Store({
             state.roles.get(role.id) ||
             Object.assign({}, customRole, role),
         )
-        // default empty icons and placeholders, clean up firstNight / otherNight
+        // default empty icons and placeholders, set firstNight / otherNight from night-order data
         .map((role) => {
           if (rolesJSONbyId.get(role.id)) return role;
           role.imageAlt = // map team to generic icon
@@ -229,8 +243,22 @@ export default new Vuex.Store({
               demon: "evil",
               fabled: "fabled",
             }[role.team] || "custom";
-          role.firstNight = Math.abs(role.firstNight);
-          role.otherNight = Math.abs(role.otherNight);
+
+          // use global night order if it contains a priority for this role
+          let nightIndex = -1;
+
+          nightIndex = nightorderJSON["firstNight"].indexOf[role.id];
+
+          if(nightIndex > -1) role.firstNight = Math.abs(nightIndex);
+          else role.firstNight = Math.abs(role.firstNight);
+
+          nightIndex = -1;
+
+          nightIndex = nightorderJSON["otherNight"].indexOf[role.id];          
+
+          if(nightIndex > -1) role.otherNight = Math.abs(nightIndex);
+          else role.otherNight = Math.abs(role.otherNight)
+
           return role;
         })
         // filter out roles that don't match an existing role and also don't have name/ability/team
